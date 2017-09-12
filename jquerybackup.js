@@ -23,40 +23,20 @@ $(document).ready(function(){
       $(p).text(data.opening_crawl);
       $('.movie')[i].append(p);
       var showPplBtn = $("<button></button")[0];
-      var planetBtn = $("<button></button>")[0];
      $('.movie')[i].append(showPplBtn);
-     $('.movie')[i].append(planetBtn);
-     $(showPplBtn).text('People');
-     $(planetBtn).text('Planets');
-     $(showPplBtn).click(function(){
+     $('button').text('People');
+     $('button').click(function(){
        let pple = $('<p></p>');
        let pple2 = $('<p></p>');
        let pple3 = $('<p></p>');
        $(people).empty();
-       $.get((data.characters[0]), function(info){
-         $(pple).text(info.name);
-       })
-       $.get((data.characters[1]), function(info2){
-         $(pple2).text(info2.name);
-       })
-       $.get((data.characters[2]), function(info3){
-         $(pple3).text(info3.name);
-       })
+       $(pple).text(data.characters[0]);
+       $(pple2).text(data.characters[1]);
+       $(pple3).text(data.characters[2]);
        $(people).append(pple);
        $(people).append(pple2);
        $(people).append(pple3);
-
-     })
-     $(planetBtn).click(function(){
-       let plan = $('<p></p>');
-       $(planets).empty();
-       $.get((data.planets[0]), function(stuff){
-         $(plan).text(stuff.name);
-       })
-       $(planets).append(plan);
      })
    })
  }
-
-
 })
